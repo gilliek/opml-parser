@@ -1,27 +1,52 @@
-module OpmlParser
-	require 'nokogiri'
+require 'nokogiri'
 
+# OpmlParser Module
+#
+# A very simple and easy to use module for importing and exporting OPML.
+#
+# Example:
+# 	TODO
+#
+# == Credits
+#
+# Kevin Gillieron <kevin.gillieron@gw-computing.net>
+#
+module OpmlParser
+	# Class representing an OPML outline element
 	class Outline
+		# OPML outline attributes (generally text, title, type, xmlUrl
+		# and htmlUrl)
 		attr_reader :attributes
 
-		def initialize(nokogiri_attributes)
-			@attributes = Hash.new
-
-			nokogiri_attributes.each do |k,v|
-				@attributes[k] = v.value
-			end
+		# Initializes an outline object
+		#
+		# Arguments:
+		# 	attributes: (Hash) A Hash table that contains the attributes of the
+		# 	outline.
+		#
+		def initialize(attributes=Hash.new)
+			@attributes = attributes
 		end
 	end
 
+	# Import an OPML String as an array of Outline object
+	#
+	# Arguments:
+	# 	contents: (String) A String that contains the OMPL
 	def import(contents)
 		doc = Nokogiri.XML(contents)
 		feeds = Array.new
 
 		doc.xpath("//body//outline").inject(Array.new) do |feeds, outline|
-			feeds << Outline.new(outline.attributes) if !outline.attributes.empty?
+			next if !outline.attributes.empty?
+			feeds << Outline.new(xml_node_to_hash(outline.attributes))
 		end
 	end
 
+	# Import an OPML String as an array of Outline object
+	#
+	# Arguments:
+	# 	feeds: (Array of Outline) An array of Outline objects
 	def export(feeds)
 		builder = Nokogiri::XML::Builder.new(encoding: "UTF-8") do |xml|
 			xml.opml(version: "1.0") do
@@ -31,4 +56,16 @@ module OpmlParser
 		end
 		builder.to_xml
 	end
+
+	private
+		# Convert a Nokogiri XML Node to a Hash table
+		def xml_node_to_hash(nokogiri_node)
+			attributes = Hash.new
+
+			nokogiri_node.each do |k,v|
+				attributes[k] = v.value
+			end
+
+			return attributes
+		end
 end
