@@ -1,0 +1,6 @@
+Gemfile.lock
+rdoc/
+doc/
+pkg/
+.bundle
+*.swp
