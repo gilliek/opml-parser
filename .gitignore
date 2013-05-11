@@ -1,6 +1,6 @@
 Gemfile.lock
 rdoc/
-doc/
+html/
 pkg/
 .bundle
 *.swp
