@@ -26,7 +26,7 @@ module OpmlParser
 		end
 	end
 
-	# Convert an OPML String to an array of Outline objects.
+	# Parse an OPML String into an array of Outline objects.
 	#
 	# Arguments:
 	# 	contents: (String) A String that contains the OMPL
@@ -39,7 +39,7 @@ module OpmlParser
 		end
 	end
 
-	# Export an OPML String to an array of Outline objects.
+	# Export an OPML String into an array of Outline objects.
 	#
 	# Arguments:
 	# 	feeds: (Array of Outline) An array of Outline objects
