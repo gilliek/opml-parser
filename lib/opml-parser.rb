@@ -10,24 +10,23 @@ require 'opml-parser/version'
 # Kevin Gillieron <kevin.gillieron@gw-computing.net>
 #
 module OpmlParser
-	# Class representing an OPML outline element
+	# OPML outline element
 	class Outline
-		# OPML outline attributes (generally text, title, type, xmlUrl
-		# and htmlUrl)
+		# Outline attributes (generally text, title, type, xmlUrl and htmlUrl)
 		attr_reader :attributes
 
-		# Initializes an outline object
+		# Initializes an Outline object
 		#
 		# Arguments:
 		# 	attributes: (Hash) A Hash table that contains the attributes of the
 		# 	outline.
 		#
-		def initialize(attributes=Hash.new)
+		def initialize(attributes={})
 			@attributes = attributes
 		end
 	end
 
-	# Import an OPML String as an array of Outline object
+	# Convert an OPML String to an array of Outline objects.
 	#
 	# Arguments:
 	# 	contents: (String) A String that contains the OMPL
@@ -40,14 +39,15 @@ module OpmlParser
 		end
 	end
 
-	# Import an OPML String as an array of Outline object
+	# Export an OPML String to an array of Outline objects.
 	#
 	# Arguments:
 	# 	feeds: (Array of Outline) An array of Outline objects
-	def export(feeds)
+	# 	title: (String) Title of the OPML document
+	def export(feeds, title="No title")
 		builder = Nokogiri::XML::Builder.new(encoding: "UTF-8") do |xml|
 			xml.opml(version: "1.0") do
-				xml.head { xml.title "RReader Exported Feeds" }
+				xml.head { xml.title title }
 				xml.body { feeds.each { |outline| xml.outline(outline.attributes) }}
 			end
 		end
