@@ -84,4 +84,4 @@ output.close
 Documentation
 =============
 
-See http://www.gilliek.ch/doc/opml-parser/OpmlParser.html
+See http://doc.gw-computing.net/opml-parser
