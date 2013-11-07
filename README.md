@@ -1,7 +1,7 @@
 OPML-Parser
 ===========
 
-opml-parser is a simple Ruby gem that provides OPML parsing and export to OPML.
+opml-parser is a simple Ruby gem that provides a module for parsing OPML.
 
 Installation
 ============
