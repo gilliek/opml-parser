@@ -3,6 +3,8 @@ require "bundler/gem_tasks"
 require 'rake/testtask'
 require 'rdoc/task'
 
+task :default => [:test] # required by travis
+
 Rake::TestTask.new(:test) do |test|
 	test.libs << 'lib' << 'test'
 	test.pattern = 'test/**/*_test.rb'
