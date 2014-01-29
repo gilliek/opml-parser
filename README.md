@@ -1,6 +1,8 @@
 OPML-Parser
 ===========
 
+[![Dependencies Statis](https://gemnasium.com/gilliek/opml-parser.png)](https://gemnasium.com/gilliek/opml-parser)
+
 opml-parser is a simple Ruby gem that provides a module for parsing OPML.
 
 Installation
