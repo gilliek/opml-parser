@@ -1,7 +1,7 @@
 OPML-Parser
 ===========
 
-[![Build Status](https://travis-ci.org/gilliek/opml-parser.png?branch=master)](https://travis-ci.org/gilliek/opml-parser) [![Dependencies Status](https://gemnasium.com/gilliek/opml-parser.png)](https://gemnasium.com/gilliek/opml-parser) [![Gem Version](https://badge.fury.io/rb/opml-parser.svg)](http://badge.fury.io/rb/opml-parser)
+[![Build Status](https://travis-ci.org/gilliek/opml-parser.png?branch=master)](https://travis-ci.org/gilliek/opml-parser) [![Dependencies Status](https://gemnasium.com/gilliek/opml-parser.png)](https://gemnasium.com/gilliek/opml-parser) [![Gem Version](https://badge.fury.io/rb/opml-parser.svg)](http://badge.fury.io/rb/opml-parser) [![opml-parser API Documentation](https://www.omniref.com/ruby/gems/opml-parser.png)](https://www.omniref.com/ruby/gems/opml-parser)
 
 opml-parser is a simple Ruby gem that provides a module for parsing OPML.
 
